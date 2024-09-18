@@ -8,8 +8,9 @@ public class Task10 {
         // Функция должна корректно обрабатывать ситуацию со сравнением значений бесконечности.
         // Функция должна считать значения «не число» NaN (например 0.0/0.0) равными между собой.
         double permErr = 1 / Math.pow(10, precision);
-        if (Math.abs(a - b) < permErr) {return true;}
         if (a!=a && b!=b) {return true;}
+        if (Float.isInfinite(a) && Float.isInfinite(b) && !Float.isNaN(a + b)) {return true;}
+        if (Math.abs(a - b) < permErr) {return true;}
 
         return a == b;
     }
